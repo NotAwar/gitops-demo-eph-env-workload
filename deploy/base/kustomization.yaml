@@ -1,0 +1,6 @@
+# Namespace-agnostic base; the target namespace is set by the overlay or the platform.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml
