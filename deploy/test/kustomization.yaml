@@ -1,6 +1,5 @@
+# Namespace is set by the platform; do not add a Namespace here.
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: star-wars
 resources:
-- namespace.yaml
 - ../base
