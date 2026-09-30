@@ -1,32 +1,32 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: leia
-#   labels:
-#     name: leia
-#   annotations:
-#     # Substituted by Flux postBuild in ephemeral envs.
-#     gitops/branch: "${GIT_BRANCH:=main}"
-#     gitops/commit: "${GIT_SHA:=unknown}"
-# spec:
-#   replicas: 2
-#   selector:
-#     matchLabels:
-#       name: leia
-#   template:
-#     metadata:
-#       labels:
-#         name: leia
-#     spec:
-#       containers:
-#       - name: leia-container
-#         image: quay.io/cilium/json-mock:v1.4.1@sha256:6a66df90808a39c02e7a9d58af7bf0e54d8f8b7d4bc528f48c891969a7049195
-#         ports:
-#         - containerPort: 80
-#         resources:
-#           requests:
-#             cpu: 10m
-#             memory: 32Mi
-#           limits:
-#             cpu: 100m
-#             memory: 64Mi
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leia
+  labels:
+    name: leia
+  annotations:
+    # Substituted by Flux postBuild in ephemeral envs.
+    gitops/branch: "${GIT_BRANCH:=main}"
+    gitops/commit: "${GIT_SHA:=unknown}"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: leia
+  template:
+    metadata:
+      labels:
+        name: leia
+    spec:
+      containers:
+      - name: leia-container
+        image: quay.io/cilium/json-mock:v1.4.1@sha256:6a66df90808a39c02e7a9d58af7bf0e54d8f8b7d4bc528f48c891969a7049195
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
